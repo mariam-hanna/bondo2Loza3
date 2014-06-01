@@ -1,0 +1,101 @@
+<br /><br />
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<!-- head and style --->
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        #container
+        {
+            height: 400px;
+            position: relative;
+            width: 400px;
+        }
+
+        #f1
+        {
+            bottom: 0;
+            top: 224px;
+            left: -771px;
+            position: absolute;
+            width: 215%;
+            visibility:hidden
+        }
+        .btnExample {
+            color: #900;
+            background: #FF0;
+            font-weight: bold;
+            border: 1px solid #900;
+        }
+
+        .btnExample:hover {
+            color: #FFF;
+            background: #900;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="content">
+        <canvas id="mysandbox" style="border:1px solid #000000;position: absolute;left: 50%;top:30% " width="720"  height="450">
+
+        </canvas>
+        <audio controls id="4" style="display:none">
+            <source src="<?= $this->baseUrl() ?>/audio/story1.m4a" >
+        </audio>
+        <!-- start of question's form  -->
+        <form id =f1 name="Qform" method="post" action="">
+            <br><br>
+            <table width="600px"  height="200" align="center" style="border:1px solid #000000;background-color:#CCCC99 ;
+                   border:1px solid black;
+                   opacity:0.6;
+                   filter:alpha(opacity=60); /* For IE8 and earlier */">
+                <tr><td colspan=2></td></tr>
+                <tr><td colspan=2> </td></tr>
+                <tr>
+                    <td colspan=2></td>
+                    <td style="text-align:center" ><b><font color="#996600">تفتكر عم فطين هيعالج بندق ازاي ؟  </font></b> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button id ="a1" class="btnExample"  value="a1"> يرجع راسه إلى الامام   </button>
+                    </td> <td>
+                        <button id ="a2" class="btnExample"  value="a2">يرجع راسه إلى الخلف  </button>
+
+                    </td>
+                </tr>
+                <tr><td colspan=2> </td></tr>
+            </table>
+        </form>
+        <!--end of question's Form  -->
+    </div>
+    <div style="background-color: white;padding:50px;position: absolute;top:85%;left:50%" DIR="RTL">
+        <ul>
+            <?php
+            if (isset($this->advices)) {
+                foreach ($this->advices as $advice) {
+                    ?>
+
+                    <li><strong><?= $advice['question'] ?></strong><br>
+                    <?= $advice['answer'] ?><br><br>
+                    </li>
+
+
+                    <?php
+                }
+            }
+            ?>
+        </ul>
+    </div>
+
+    <?php
+        //$this->story = "cat1_nosebleeding.html";
+        include "../public/$this->story"
+    ?>
+
+</body>
+
